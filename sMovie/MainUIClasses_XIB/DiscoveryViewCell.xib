@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="discoveryMovieCell" id="gTV-IL-0wX" customClass="DiscoveryViewCell" customModule="sMovie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LI0-Yh-8B9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwI-qd-CsQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+                                <connections>
+                                    <action selector="discoveryImageClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="1cm-V0-DaF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qwI-qd-CsQ" secondAttribute="trailing" id="06I-zb-Z6S"/>
+                            <constraint firstItem="qwI-qd-CsQ" firstAttribute="leading" secondItem="LI0-Yh-8B9" secondAttribute="leading" id="KZa-k5-Qyj"/>
+                            <constraint firstItem="qwI-qd-CsQ" firstAttribute="top" secondItem="LI0-Yh-8B9" secondAttribute="top" id="Ojj-9c-D9o"/>
+                            <constraint firstAttribute="bottom" secondItem="qwI-qd-CsQ" secondAttribute="bottom" constant="20" id="hyh-lx-2XK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="LI0-Yh-8B9" secondAttribute="bottom" id="1qm-ZD-WNf"/>
+                <constraint firstAttribute="trailing" secondItem="LI0-Yh-8B9" secondAttribute="trailing" id="5vi-Q8-aV3"/>
+                <constraint firstItem="LI0-Yh-8B9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="EbV-hP-Iby"/>
+                <constraint firstItem="LI0-Yh-8B9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nEw-1A-8wT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="discoveryImageButton" destination="qwI-qd-CsQ" id="LLa-mj-jDe"/>
+            </connections>
+            <point key="canvasLocation" x="687.68115942028987" y="135.9375"/>
+        </collectionViewCell>
+    </objects>
+</document>
