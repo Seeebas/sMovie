@@ -19,8 +19,9 @@ class Constants{
     
     //the main link to the API website
     static let urlMovie = "https://api.themoviedb.org/3/movie/"
+    static let urlSerie = "https://api.themoviedb.org/3/tv/"
     
-    static let urlSearch = "https://api.themoviedb.org/3/search/movie/"
+    static let urlSearch = "https://api.themoviedb.org/3/search/"
     
     //the main link to the API website to get the image
     static let urlMovieImage = "https://image.tmdb.org/t/p/"
@@ -34,11 +35,15 @@ class Constants{
     static let urlParamUpcoming = "upcoming"
     static let urlParamNowPlaying = "now_playing"
     static let urlParamTopRated = "top_rated"
+    //url for getting series
+    static let urlParamLates = "lates"
     // to get the casts from a movie
     static let urlParamCast = "credits"
     static let urlParamSimilar = "similar"
     static let urlParamRecommendation = "recommendations"
     static let urlParamQuery = "query"
+    static let urlParamMovie = "movie"
+    static let urlParamSerie = "tv"
     // for image size
     static let urlParamImage300w = "w300"
     static let urlParamImage400w = "w400"
@@ -57,12 +62,14 @@ class Constants{
     static let requestJsonId = "id"
     
     static let requestJsonOriginalTitle = "original_title"
-    static let requestJasonTitle = "title"
-    static let requestJasonPosterPath = "poster_path"
+    static let requestJsonOriginalName  = "original_name"
+    static let requestJsonTitle = "title"
+    static let requestJsonPosterPath = "poster_path"
     static let requestJsonBackdrop = "backdrop_path"
     static let requestJsonOverview = "overview"
     static let requestJsonVote = "vote_average"
     static let requestJsonReleaseDate = "release_date"
+    static let requestJsonFirstAirDate = "first_air_date"
     static let requestJsonOriginalLanguage = "original_language"
     
     //Mapping values for the extra info for the Movie

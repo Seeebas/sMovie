@@ -28,9 +28,9 @@ class Request{
             for data in movies {
                 let movie = Movie()
                 movie.id = data[Constants.requestJsonId].stringValue
-                movie.title = data[Constants.requestJasonTitle].stringValue
+                movie.title = data[Constants.requestJsonTitle].stringValue
                 movie.originalTitle = data[Constants.requestJsonOriginalTitle].stringValue
-                movie.posterURL = data[Constants.requestJasonPosterPath].stringValue
+                movie.posterURL = data[Constants.requestJsonPosterPath].stringValue
                 movie.backdropURL = data[Constants.requestJsonBackdrop].stringValue
                 movie.overview = data[Constants.requestJsonOverview].stringValue
                 movie.vote = returnAtualVoteConvert(value: data[Constants.requestJsonVote].doubleValue)
@@ -41,6 +41,29 @@ class Request{
             }
         }
     
+        return listMovie
+    }
+    
+    func fromJSONtoSeries(json : JSON)->[Movie]{
+        var listMovie : [Movie] = []
+        
+        if let movies = json[Constants.requestInfoResults].array {
+            for data in movies {
+                let movie = Movie()
+                movie.id = data[Constants.requestJsonId].stringValue
+                movie.title = data[Constants.requestJsonName].stringValue
+                movie.originalTitle = data[Constants.requestJsonName].stringValue
+                movie.posterURL = data[Constants.requestJsonPosterPath].stringValue
+                movie.backdropURL = data[Constants.requestJsonBackdrop].stringValue
+                movie.overview = data[Constants.requestJsonOverview].stringValue
+                movie.vote = returnAtualVoteConvert(value: data[Constants.requestJsonVote].doubleValue)
+                movie.releaseDate = data[Constants.requestJsonFirstAirDate].stringValue
+                movie.language = data[Constants.requestJsonOriginalLanguage].stringValue
+                
+                listMovie.append(movie)
+            }
+        }
+        
         return listMovie
     }
     

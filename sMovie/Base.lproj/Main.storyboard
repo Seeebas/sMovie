@@ -55,16 +55,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jTY-1S-fVd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOi-5E-1NU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-AJ-JqC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="29"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,7 +88,7 @@
         <!--Serie-->
         <scene sceneID="GoR-hk-wlP">
             <objects>
-                <viewController title="Serie" id="CA8-qW-7mD" sceneMemberID="viewController">
+                <viewController title="Serie" id="CA8-qW-7mD" customClass="MainSeriesViewController" customModule="sMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vim-NK-gM0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,10 +234,13 @@
                         <viewLayoutGuide key="safeArea" id="NbD-fq-lZw"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="JlH-if-X5X"/>
+                    <connections>
+                        <segue destination="XSx-7q-7pu" kind="show" identifier="movieDetail" id="T6S-YU-7e4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ty4-rU-FJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="49" y="483"/>
+            <point key="canvasLocation" x="48.799999999999997" y="482.60869565217394"/>
         </scene>
         <!--sMovie-->
         <scene sceneID="ZuC-df-9E8">
@@ -286,4 +279,7 @@
         <image name="serie-1" width="30" height="30"/>
         <image name="settings" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mqI-mZ-khZ"/>
+    </inferredMetricsTieBreakers>
 </document>

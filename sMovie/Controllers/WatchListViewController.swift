@@ -11,8 +11,6 @@ import RealmSwift
 
 class WatchListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    
-    
     let titleLabel: UILabel = UILabel()
     let watchTableView: UITableView = UITableView()
     
@@ -21,7 +19,9 @@ class WatchListViewController: UIViewController,UITableViewDelegate,UITableViewD
             watchTableView.reloadData()
         }
     }
+    
     var realm = try! Realm()
+    
     @IBOutlet weak var segmentedWatchType: UISegmentedControl!
     
 
@@ -50,13 +50,13 @@ class WatchListViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     private func createTableView(){
-        watchTableView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        watchTableView.frame = CGRect(x: 0, y: 150, width: view.frame.width, height: view.frame.height)
         
         //watchTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         watchTableView.register(UINib(nibName: "WatchTableViewCell", bundle: nil), forCellReuseIdentifier: "watchCell")
         watchTableView.rowHeight = 150
         watchTableView.backgroundColor = UIColor.clear
-        watchTableView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
+        //watchTableView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
         watchTableView.separatorStyle = .none
         watchTableView.delegate = self
         watchTableView.dataSource = self
