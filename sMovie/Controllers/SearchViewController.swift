@@ -97,11 +97,11 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDele
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         movieInfo = listMovie[indexPath.row]
         
-        //self.performSegue(withIdentifier: "movieDetail", sender: self)
+        self.performSegue(withIdentifier: "movieDetail", sender: self)
     }
     
 
@@ -129,10 +129,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDele
                 
             }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     
     private func createSearchBar(){
