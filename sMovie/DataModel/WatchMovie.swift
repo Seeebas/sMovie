@@ -22,6 +22,7 @@ class WatchMovie: Object{
     @objc dynamic var language : String = ""
     @objc dynamic var geners : String = ""
     @objc dynamic var directorName : String = ""
+    @objc dynamic var isMovie : Bool = true
 
     /*
     override static func primaryKey() ->String{

@@ -59,6 +59,7 @@ class Request{
                 movie.vote = returnAtualVoteConvert(value: data[Constants.requestJsonVote].doubleValue)
                 movie.releaseDate = data[Constants.requestJsonFirstAirDate].stringValue
                 movie.language = data[Constants.requestJsonOriginalLanguage].stringValue
+                movie.isMovie = false
                 
                 listMovie.append(movie)
             }

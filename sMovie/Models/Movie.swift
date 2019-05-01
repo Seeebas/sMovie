@@ -23,6 +23,7 @@ class Movie{
     var language : String
     var genres : [MovieExtraDetail]
     var directorName : String
+    var isMovie: Bool
     
     
     init(){
@@ -38,6 +39,7 @@ class Movie{
         self.language = ""
         self.genres = []
         self.directorName = ""
+        self.isMovie = true
     }
     
 }

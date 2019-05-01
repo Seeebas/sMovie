@@ -210,6 +210,8 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDele
         if segue.identifier == "movieDetail"{
             let detailPage = segue.destination as! MovieDetailViewController
             detailPage.movieInfo = self.movieInfo
+            (segment.selectedSegmentIndex == 0) ? (detailPage.isMovie = true)
+                                                : (detailPage.isMovie = false)
         }
     }
  

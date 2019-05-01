@@ -13,12 +13,14 @@ import ChameleonFramework
 class MovieDetailViewController: UIViewController {
 
     var movieInfo: Movie = Movie()
+    var isMovie: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tableDetail = DetailTableViewController()
         tableDetail.movie = movieInfo
+        tableDetail.isMovie = isMovie
         self.addChild(tableDetail)
         view.addSubview(tableDetail.tableView)
         

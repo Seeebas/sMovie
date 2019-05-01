@@ -104,6 +104,7 @@ class DetailRateGenderViewCell: UITableViewCell {
             newWatch.language = movie.language
             newWatch.geners = genderLabel.text!
             newWatch.directorName = movie.directorName
+            newWatch.isMovie = movie.isMovie
         }
     
         return newWatch

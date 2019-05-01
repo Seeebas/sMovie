@@ -21,6 +21,7 @@ class DetailTableViewController: UITableViewController {
     let tableInfoSize: Int = 6
     
     var movie: Movie = Movie()
+    var isMovie: Bool = true
     var listCast: [Cast] = []
     var listCrew: [Cast] = []
     var listRecomendation: [Movie] = []
@@ -28,6 +29,10 @@ class DetailTableViewController: UITableViewController {
     var gender = ""
     
     var request = Request()
+    
+    
+    // TODO: melhorar a forma como faço o request pois agora vamos ter 2 tipos movie e serie
+    //       adicionar o request para as series usando o isMovie = false
     
     var jsonMovieExtra: JSON = JSON.null{
         didSet{
@@ -43,9 +48,8 @@ class DetailTableViewController: UITableViewController {
             }            
             // Request for Cast movie
             if self.jsonCast.isEmpty{
-                let urlCast = UtilsLink.utils.createLink(mainLink: Constants.urlMovie,
-                                                         params: movie.id,Constants.urlParamCast,
-                                                         separator: "/")
+                let urlCast = createUrl(paramExtra: Constants.urlParamCast)
+
                 request.GET(url: urlCast,
                             parameters: Constants.paramsStandard)
                 
@@ -63,9 +67,9 @@ class DetailTableViewController: UITableViewController {
             movie.directorName = (!listCrew.isEmpty) ? listCrew[0].name : "nd"
             // Request for Movie recomendation
             if self.jsonMovieRecomendation.isEmpty{
-                let urlRecomendation = UtilsLink.utils.createLink(mainLink: Constants.urlMovie,
-                                                                  params: movie.id,Constants.urlParamRecommendation,
-                                                                  separator: "/")
+                
+                let urlRecomendation = createUrl(paramExtra: Constants.urlParamRecommendation)
+                
                 request.GET(url: urlRecomendation,
                             parameters: Constants.paramsStandard)
                 
@@ -162,6 +166,7 @@ class DetailTableViewController: UITableViewController {
          return UITableViewCell()
     }
     
+    
     //MARK: Method to streach the image
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -238,6 +243,21 @@ class DetailTableViewController: UITableViewController {
         
     }
     
+    
+    private func createUrl(paramExtra: String)->String{
+        var url = ""
+        
+        if (isMovie){
+            url = UtilsLink.utils.createLink(mainLink: Constants.urlMovie,
+                                             params: movie.id,paramExtra,
+                                             separator: "/")
+        }else{
+            url = UtilsLink.utils.createLink(mainLink: Constants.urlSerie,
+                                             params: movie.id,paramExtra,
+                                             separator: "/")
+        }
+        return url
+    }
 
     
 }

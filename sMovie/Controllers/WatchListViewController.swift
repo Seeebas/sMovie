@@ -16,11 +16,20 @@ class WatchListViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     var listOfWatchList: Results<WatchMovie>? {
         didSet{
+            print("did set")
             watchTableView.reloadData()
         }
     }
     
+    var whichOneList = [Movie](){
+        didSet{
+           // watchTableView.reloadData()
+        }
+    }
+    
     var realm = try! Realm()
+    
+    var movieInfo: Movie = Movie()
     
     @IBOutlet weak var segmentedWatchType: UISegmentedControl!
     
@@ -31,10 +40,15 @@ class WatchListViewController: UIViewController,UITableViewDelegate,UITableViewD
         createTitleLabel()
         createTableView()
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+        (segmentedWatchType.selectedSegmentIndex==0) ? whichOne(isMovie: true)
+                                                     : whichOne(isMovie: false)
+        
+        print(segmentedWatchType.selectedSegmentIndex)
     }
     
     //MARK: Creating the UI for this page
@@ -66,31 +80,22 @@ class WatchListViewController: UIViewController,UITableViewDelegate,UITableViewD
     //MARK: Method that loading the info for this page
     private func loadData(){
         
-     listOfWatchList = realm.objects(WatchMovie.self)
+        listOfWatchList = realm.objects(WatchMovie.self)
       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     @IBAction func selectTypeButton(_ sender: Any) {
-        
-        print(segmentedWatchType.selectedSegmentIndex)
         
         switch segmentedWatchType.selectedSegmentIndex {
         case 0://Movie
             titleLabel.text = "Movies"
+            whichOne(isMovie: true)
+            watchTableView.reloadData()
             break
         case 1:// Series
             titleLabel.text = "Series"
+            whichOne(isMovie: false)
+            watchTableView.reloadData()
             break
         default:
             return
@@ -100,36 +105,83 @@ class WatchListViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     //MARK: Methods for the tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listOfWatchList?.count ?? 0
+        return whichOneList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = watchTableView.dequeueReusableCell(withIdentifier: "watchCell", for: indexPath) as! WatchTableViewCell
         mappingWatchListInfo(cellWatch: cell, index: indexPath.row)
-       
+        
         return cell
         
-
     }
     
-    private func mappingWatchListInfo(cellWatch: WatchTableViewCell,index: Int){
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.movieInfo = whichOneList[indexPath.row].self
         
-        if (listOfWatchList!.count > 0){
+        self.performSegue(withIdentifier: "movieDetail", sender: self)
+    }
+    private func mappingWatchListInfo(cellWatch: WatchTableViewCell,index: Int){
+        if (!whichOneList.isEmpty){
+            
             let imageUrl = UtilsLink.utils.createLink(mainLink: Constants.urlMovieImage,
                                                       params: Constants.urlParamImage300w,
                                                       separator: "/")
-            let url = URL(string: imageUrl + listOfWatchList![index].posterURL)
+            let url = URL(string: imageUrl + whichOneList[index].posterURL)
             
-            cellWatch.poster.sd_setImage(with: url, placeholderImage: UIImage(named: listOfWatchList![index].posterURL))
+            cellWatch.poster.sd_setImage(with: url, placeholderImage: UIImage(named: whichOneList[index].posterURL))
             cellWatch.watchRank.text = "\(index+1)"
-            cellWatch.title.text = listOfWatchList![index].title
-            cellWatch.directorValueLabel.text = listOfWatchList![index].directorName
-            cellWatch.ratingStar.rating = listOfWatchList![index].vote
-            cellWatch.ratingLabel.text = "\((listOfWatchList![index].vote*10)/5)"
-            
+            cellWatch.title.text = whichOneList[index].title
+            cellWatch.directorValueLabel.text = whichOneList[index].directorName
+            cellWatch.ratingStar.rating = whichOneList[index].vote
+            cellWatch.ratingLabel.text = "\((whichOneList[index].vote*10)/5)"
+        
         }
-
+        
     }
+    /** This method is used for mapping Movie in one side of the segmented and Serie in other segmented**/
+    private func whichOne(isMovie: Bool){
+        
+        whichOneList.removeAll()
+        if (listOfWatchList!.count > 0){
+            
+            for movie in listOfWatchList!{
+                if (movie.isMovie == isMovie){
+                    let newWatch = Movie()
+                    
+                    newWatch.id = movie.id
+                    newWatch.title = movie.title
+                    newWatch.originalTitle = movie.originalTitle
+                    newWatch.overview = movie.overview
+                    newWatch.posterURL = movie.posterURL
+                    newWatch.backdropURL = movie.backdropURL
+                    newWatch.vote = movie.vote
+                    newWatch.releaseDate = movie.releaseDate
+                    newWatch.runtime = movie.runtime
+                    newWatch.language = movie.language
+                    newWatch.directorName = movie.directorName
+                    newWatch.isMovie = movie.isMovie
+                    
+                    whichOneList.append(newWatch)
+                }
+            }
+        }
+        
+    }
+    
 
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "movieDetail"){
+            let detailPage = segue.destination as! MovieDetailViewController
+            (segmentedWatchType.selectedSegmentIndex == 0) ? (detailPage.isMovie = true)
+                                                           : (detailPage.isMovie = false)
+            detailPage.movieInfo = self.movieInfo
+        }
+     }
+    
 }

@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7K-vX-Bab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1101.5999999999999" y="-571.66416791604206"/>
+            <point key="canvasLocation" x="1702" y="527"/>
         </scene>
         <!--Watch List-->
         <scene sceneID="0y7-dn-SsS">
@@ -79,6 +79,7 @@
                     <tabBarItem key="tabBarItem" title="Watch list" image="heart" selectedImage="heart" id="bzt-2j-7co"/>
                     <connections>
                         <outlet property="segmentedWatchType" destination="bv1-AJ-JqC" id="KEw-aL-yNY"/>
+                        <segue destination="XSx-7q-7pu" kind="show" identifier="movieDetail" id="RHL-45-KZi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtU-cB-MnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -96,6 +97,9 @@
                         <viewLayoutGuide key="safeArea" id="YPd-iK-4pS"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Serie" image="serie" id="Zfh-PD-og2"/>
+                    <connections>
+                        <segue destination="XSx-7q-7pu" kind="show" identifier="movieDetail" id="0MV-ry-9y5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qL2-HC-wBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -280,6 +284,6 @@
         <image name="settings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mqI-mZ-khZ"/>
+        <segue reference="0MV-ry-9y5"/>
     </inferredMetricsTieBreakers>
 </document>

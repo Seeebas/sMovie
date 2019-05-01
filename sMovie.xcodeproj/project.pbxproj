@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5057A54B6BC91565DE9372A5 /* Pods_sMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0E5B330693D4ABD5A68534 /* Pods_sMovie.framework */; };
+		930188F5227A5D2900592225 /* MainSerieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930188F4227A5D2900592225 /* MainSerieViewController.swift */; };
 		930714D4225AA3B200DE3F23 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930714D3225AA3B200DE3F23 /* Cast.swift */; };
 		930714D8225AA9F200DE3F23 /* UtilsLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930714D7225AA9F200DE3F23 /* UtilsLink.swift */; };
 		931F350B226480A60021F1FC /* WatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931F3509226480A60021F1FC /* WatchTableViewCell.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		1C0E5B330693D4ABD5A68534 /* Pods_sMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		930188F4227A5D2900592225 /* MainSerieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSerieViewController.swift; sourceTree = "<group>"; };
 		930714D3225AA3B200DE3F23 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		930714D7225AA9F200DE3F23 /* UtilsLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsLink.swift; sourceTree = "<group>"; };
 		931F3509226480A60021F1FC /* WatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTableViewCell.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				937CDC2F224E2926003A185C /* MainTableDiscoveryCell.swift */,
 				937CDC39224E3586003A185C /* MainTableMovieCell.swift */,
 				93C04267226BE79700E9CD4F /* MainSeriesViewController.swift */,
+				930188F4227A5D2900592225 /* MainSerieViewController.swift */,
 			);
 			path = sMovie;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				93598656224062F7008F2491 /* Constants.swift in Sources */,
 				931F350B226480A60021F1FC /* WatchTableViewCell.swift in Sources */,
 				937CDC3A224E3586003A185C /* MainTableMovieCell.swift in Sources */,
+				930188F5227A5D2900592225 /* MainSerieViewController.swift in Sources */,
 				937CDC2E224E2509003A185C /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
