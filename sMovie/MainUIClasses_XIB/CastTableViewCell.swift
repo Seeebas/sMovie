@@ -53,7 +53,8 @@ class CastTableViewCell: UITableViewCell,UICollectionViewDelegate,UICollectionVi
             let url = URL(string: UtilsLink.utils.createLink(mainLink: imageUrl,
                                                              params: listCast[indexPath.row].imageLink,
                                                              separator: "/"))
-            let palceHolder = UIImage(named: listCast[indexPath.row].name)
+            let palceHolder = (!listCast[indexPath.row].name.isEmpty) ? (UIImage(named: listCast[indexPath.row].name))
+                                                                      : (UIImage(named: "noImage"))
             
             
             cell.castImage.sd_setBackgroundImage(with: url,
