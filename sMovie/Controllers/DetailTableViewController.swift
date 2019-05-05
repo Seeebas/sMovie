@@ -172,7 +172,7 @@ class DetailTableViewController: UITableViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y =  250 - (scrollView.contentOffset.y + 250)
         
-        let height = max(y,150)//min( max(y,250),250)
+        let height = max(y,0)//min( max(y,250),250)
         
         headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: height)
         

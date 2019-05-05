@@ -35,6 +35,9 @@ class Constants{
     static let urlParamUpcoming = "upcoming"
     static let urlParamNowPlaying = "now_playing"
     static let urlParamTopRated = "top_rated"
+    //for series
+    static let urlParamAirToday = "airing_today"
+    static let urlParamOnTheAir = "on_the_air"
     //url for getting series
     static let urlParamLates = "lates"
     // to get the casts from a movie
@@ -79,12 +82,22 @@ class Constants{
     static let requuestInfoCrew = "crew"
     static let requestInfoResults = "results"
     
+    //
+    static let totalCell = 8
+    
 
     
-    enum category : String{
+    enum categoryMovie : String{
         case discovery = "Discovery"
         case upcoming  = "Upcoming"
         case nowPlaying = "Now Playing"
+        case topRated  = "Top Rated"
+    }
+    
+    enum categorySerie : String{
+        case airToday = "Air Today"
+        case onTheAir  = "On the Air"
+        case popular = "Popular"
         case topRated  = "Top Rated"
     }
     

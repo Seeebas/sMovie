@@ -12,41 +12,39 @@ import Alamofire
 
 class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,GoToPageDetailProtocol {
     
-    
-    @IBOutlet weak var mainTableView: UITableView!
+    var tableMovie:UITableView = UITableView()
     
     var movieInfo: Movie = Movie()
     
-    var totalCell = 8
-    
-    var lastUpdate: Bool = false{
-        didSet{
-            if(lastUpdate){
-                mainTableView.reloadData()
-            }
-        }
-    }
+//    var lastUpdate: Bool = false{
+//        didSet{
+//            if(lastUpdate){
+//                mainTableView.reloadData()
+//            }
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainTableView.separatorStyle = .none
+        createTable()
         
-        mainTableView.register(UINib(nibName: "MainTitleViewCell", bundle: nil), forCellReuseIdentifier: "mainTitleCell")
+        tableMovie.delegate = self
+        tableMovie.dataSource = self
            
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if(!lastUpdate){
-            if(indexPath.row == 7){
-                lastUpdate = true
-            }
-        }
- 
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if(!lastUpdate){
+//            if(indexPath.row == 7){
+//                lastUpdate = true
+//            }
+//        }
+// 
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return totalCell
+        return Constants.totalCell
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,24 +53,24 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         switch indexPath.row {
        
         case 0://Title - Discovery (popular)
-            let cell = titleCell(title: Constants.category.discovery.rawValue,titleSize: 40,color: UIColor.white, indexPath: indexPath)
+            let cell = titleCell(title: Constants.categoryMovie.discovery.rawValue,titleSize: 40,color: UIColor.white, indexPath: indexPath)
             return cell
         case 1:
-            let cell = mainTableView.dequeueReusableCell(withIdentifier: "discoveryCell", for: indexPath) as! MainTableDiscoveryCell
+            let cell = tableMovie.dequeueReusableCell(withIdentifier: "mainCell") as! MainTableViewCell
             
             cell.urlRequest = UtilsLink.utils.createLink(mainLink: Constants.urlMovie,
                                                          params: Constants.urlParamDiscovery,
                                                          separator: "/")
             cell.goToPageDetail = self
             
-            mainTableView.rowHeight = 210
+            tableMovie.rowHeight = 210
             
             return cell
         case 2: //Title - Upcoming
-            let cell = titleCell(title: Constants.category.upcoming.rawValue,titleSize: 25,color: UIColor.white, indexPath: indexPath)
+            let cell = titleCell(title: Constants.categoryMovie.upcoming.rawValue,titleSize: 25,color: UIColor.white, indexPath: indexPath)
             return cell
         case 3:
-            let cell = mainTableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MainTableMovieCell
+            let cell = tableMovie.dequeueReusableCell(withIdentifier: "otherCell") as! SecondTableViewCell
             
             cell.urlRequest = UtilsLink.utils.createLink(mainLink: Constants.urlMovie,
                                                          params: Constants.urlParamUpcoming,
@@ -80,36 +78,35 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
             cell.goToPageDetail = self
             
-            mainTableView.rowHeight = 210
+            tableMovie.rowHeight = 210
             
             return cell
         case 4: //Title - NowPlaying
-            let cell = titleCell(title: Constants.category.nowPlaying.rawValue,titleSize: 25,color: UIColor.white, indexPath: indexPath)
+            let cell = titleCell(title: Constants.categoryMovie.nowPlaying.rawValue,titleSize: 25,color: UIColor.white, indexPath: indexPath)
             return cell
         case 5:
-            let cell = mainTableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MainTableMovieCell
+            let cell = tableMovie.dequeueReusableCell(withIdentifier: "otherCell") as! SecondTableViewCell
 
             cell.urlRequest = UtilsLink.utils.createLink(mainLink: Constants.urlMovie,
                                                          params: Constants.urlParamNowPlaying,
                                                          separator: "/")
             cell.goToPageDetail = self
             
-            mainTableView.rowHeight = 210
+            tableMovie.rowHeight = 210
             
             return cell
         case 6: //Title - TopRated
-            let cell = titleCell(title: Constants.category.topRated.rawValue,titleSize: 25,color: UIColor.white, indexPath: indexPath)
+            let cell = titleCell(title: Constants.categoryMovie.topRated.rawValue,titleSize: 25,color: UIColor.white, indexPath: indexPath)
             return cell
         case 7:
-            let cell = mainTableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MainTableMovieCell
+            let cell = tableMovie.dequeueReusableCell(withIdentifier: "otherCell") as! SecondTableViewCell
             
             cell.urlRequest = UtilsLink.utils.createLink(mainLink: Constants.urlMovie,
                                                          params: Constants.urlParamTopRated,
                                                          separator: "/")
             cell.goToPageDetail = self
-            print(cell.urlRequest)
             
-            mainTableView.rowHeight = 210
+            tableMovie.rowHeight = 210
             
             return cell
         default:
@@ -122,9 +119,9 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //MARK: private methods
     
     private func titleCell(title:String,titleSize:CGFloat,color: UIColor, indexPath:IndexPath) -> MainTitleViewCell{
-        let cell = mainTableView.dequeueReusableCell(withIdentifier: "mainTitleCell", for: indexPath) as! MainTitleViewCell
+        let cell = tableMovie.dequeueReusableCell(withIdentifier: "mainTitleCell", for: indexPath) as! MainTitleViewCell
         
-        mainTableView.rowHeight = 60
+        tableMovie.rowHeight = 60
     
         cell.movieTitle(value: title)
         cell.movieTitleSize(of: titleSize)
@@ -135,7 +132,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     private func disableTableCellSelect(index: Int){
         if even(value: index){
-            mainTableView.allowsSelection = false
+            tableMovie.allowsSelection = false
         }
     }
     
@@ -161,6 +158,21 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     
+    
+    
+    private func createTable(){
+        
+        tableMovie.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        tableMovie.backgroundColor = UIColor(hexString: "2B2F32")
+        tableMovie.separatorStyle = .none
+        
+        tableMovie.register(UINib(nibName: "MainTitleViewCell", bundle: nil), forCellReuseIdentifier: "mainTitleCell")
+        tableMovie.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "mainCell")
+        tableMovie.register(UINib(nibName: "SecondTableViewCell", bundle: nil), forCellReuseIdentifier: "otherCell")
+        
+        self.view.addSubview(tableMovie)
+        
+    }
     
 
 }
