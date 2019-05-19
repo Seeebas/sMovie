@@ -39,6 +39,8 @@ class DetailRateGenderViewCell: UITableViewCell {
         heartImage.addGestureRecognizer(imageTapGesture)
         
         genderLabel.textColor = UIColor.white
+        
+        ratingStars.isUserInteractionEnabled = false
     
     }
     

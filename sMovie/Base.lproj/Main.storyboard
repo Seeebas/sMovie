@@ -29,7 +29,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6O-25-2jN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1618" y="152"/>
+            <point key="canvasLocation" x="-2297" y="152"/>
         </scene>
         <!--Details-->
         <scene sceneID="K9m-pl-TmM">
@@ -141,15 +141,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ty4-rU-FJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48.799999999999997" y="482.60869565217394"/>
+            <point key="canvasLocation" x="49" y="480"/>
         </scene>
         <!--sMovie-->
         <scene sceneID="ZuC-df-9E8">
             <objects>
-                <tabBarController id="RkQ-X6-3mN" sceneMemberID="viewController">
+                <tabBarController id="RkQ-X6-3mN" customClass="NavigationViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="sMovie" id="I5a-9l-9Hm">
-                        <barButtonItem key="rightBarButtonItem" image="settings" id="HQe-VF-z6Y">
+                        <barButtonItem key="rightBarButtonItem" image="info" id="HQe-VF-z6Y">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="buttonInfo:" destination="RkQ-X6-3mN" id="I0L-HS-mUc"/>
+                                <segue destination="5X9-Sn-wKh" kind="show" identifier="info" id="el8-DR-A9A"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6le-Kh-Yms">
@@ -169,18 +173,53 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8u-a0-rVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727" y="152"/>
+            <point key="canvasLocation" x="-1522" y="152"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="5Fg-Tw-AAt">
+            <objects>
+                <viewController title="Info" id="5X9-Sn-wKh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UJG-mp-aeQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movieDB" translatesAutoresizingMaskIntoConstraints="NO" id="74W-A9-AFJ">
+                                <rect key="frame" x="67" y="94" width="240" height="16"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app use The Movie DB API. The purpose for this app is for learning only." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etx-2c-xV5">
+                                <rect key="frame" x="35" y="145" width="305" height="86"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16862745098039217" green="0.18431372549019609" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Etx-2c-xV5" firstAttribute="leading" secondItem="U3r-48-BG2" secondAttribute="leading" constant="35" id="NRu-co-WYX"/>
+                            <constraint firstItem="U3r-48-BG2" firstAttribute="trailing" secondItem="Etx-2c-xV5" secondAttribute="trailing" constant="35" id="XNh-Z6-Ahq"/>
+                            <constraint firstItem="74W-A9-AFJ" firstAttribute="leading" secondItem="U3r-48-BG2" secondAttribute="leading" constant="67" id="Y5r-ix-Jv6"/>
+                            <constraint firstItem="U3r-48-BG2" firstAttribute="trailing" secondItem="74W-A9-AFJ" secondAttribute="trailing" constant="68" id="bHX-bq-gjB"/>
+                            <constraint firstItem="74W-A9-AFJ" firstAttribute="top" secondItem="U3r-48-BG2" secondAttribute="top" constant="30" id="fgx-LP-CcA"/>
+                            <constraint firstItem="Etx-2c-xV5" firstAttribute="top" secondItem="74W-A9-AFJ" secondAttribute="bottom" constant="35" id="znf-0J-dKr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U3r-48-BG2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="65l-X4-eJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722.39999999999998" y="-1522.488755622189"/>
         </scene>
     </scenes>
     <resources>
         <image name="heart" width="30" height="30"/>
+        <image name="info" width="30" height="30"/>
         <image name="movie" width="30" height="30"/>
         <image name="movie-1" width="30" height="30"/>
+        <image name="movieDB" width="408" height="161"/>
         <image name="serie" width="30" height="30"/>
         <image name="serie-1" width="30" height="30"/>
-        <image name="settings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0MV-ry-9y5"/>
+        <segue reference="dHn-oX-lFP"/>
     </inferredMetricsTieBreakers>
 </document>

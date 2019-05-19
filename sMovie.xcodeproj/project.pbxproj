@@ -47,6 +47,7 @@
 		93CDC56D2246F3E500B318D2 /* MovieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CDC56B2246F3E500B318D2 /* MovieViewCell.xib */; };
 		93D5C016225D36F900D1777C /* MainTitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5C014225D36F900D1777C /* MainTitleViewCell.swift */; };
 		93D5C017225D36F900D1777C /* MainTitleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D5C015225D36F900D1777C /* MainTitleViewCell.xib */; };
+		93E962422291C1B8007C8C98 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E962412291C1B8007C8C98 /* NavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		93CDC56B2246F3E500B318D2 /* MovieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewCell.xib; sourceTree = "<group>"; };
 		93D5C014225D36F900D1777C /* MainTitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleViewCell.swift; sourceTree = "<group>"; };
 		93D5C015225D36F900D1777C /* MainTitleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTitleViewCell.xib; sourceTree = "<group>"; };
+		93E962412291C1B8007C8C98 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		CA27B6DA983D255D2A2C153D /* Pods-sMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-sMovie/Pods-sMovie.release.xcconfig"; sourceTree = "<group>"; };
 		EDF79B1D2087EAAEA25C19D9 /* Pods-sMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sMovie/Pods-sMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +211,7 @@
 				93815DB3223EEE76006B1486 /* Info.plist */,
 				937CDC2D224E2509003A185C /* MainViewController.swift */,
 				930188F4227A5D2900592225 /* MainSerieViewController.swift */,
+				93E962412291C1B8007C8C98 /* NavigationViewController.swift */,
 			);
 			path = sMovie;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				93414CBD2253AC3C008DF275 /* MovieDetailViewController.swift in Sources */,
 				93C5D253225DFD4000E3AA4C /* Validate.swift in Sources */,
 				931F9A11225B8824009BD884 /* CastViewCell.swift in Sources */,
+				93E962422291C1B8007C8C98 /* NavigationViewController.swift in Sources */,
 				93815DA8223EEE75006B1486 /* AppDelegate.swift in Sources */,
 				937CDC37224E31FE003A185C /* DiscoveryViewCell.swift in Sources */,
 				939E0A37226A539D00FF0C70 /* SearchViewController.swift in Sources */,

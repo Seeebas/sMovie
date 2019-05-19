@@ -10,6 +10,8 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
+import Network
+
 class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,GoToPageDetailProtocol {
     
     var tableMovie:UITableView = UITableView()
@@ -31,7 +33,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         tableMovie.delegate = self
         tableMovie.dataSource = self
-           
+
     }
     
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -172,6 +174,14 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         self.view.addSubview(tableMovie)
         
+    }
+    
+    private func alertInfo(info: String)->UIAlertController{
+    
+        let alert = UIAlertController(title: "Alert", message: info, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+       
+        return alert
     }
     
 

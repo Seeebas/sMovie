@@ -115,55 +115,53 @@ class DetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(indexPath.row == 0){
+        
+        switch indexPath.row {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellRateGender", for: indexPath) as! DetailRateGenderViewCell
             tableView.rowHeight = 85
-
+            
             mappingGenderAndRating(mapping: cell)
-
+            
             return cell
-        }
-        if(indexPath.row == 1){
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellOverview", for: indexPath) as! DetailOverviewViewCell
-
+            
             mappingYearAndStroyline(mapping: cell)
             return cell
-        }
-        if(indexPath.row == 2){// Title
+        case 2:// Title
             let cell = tableView.dequeueReusableCell(withIdentifier: "mainTitleCell", for: indexPath) as! MainTitleViewCell
-
+            
             tableView.rowHeight = 60
             cell.movieTitle(value: "Cast")
             cell.movieTitleSize(of: 20)
             cell.movieTitleColor(with: UIColor.white)
-
+            
             return cell
-        }
-        if(indexPath.row == 3){//Cast
+        case 3://Cast
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellCastTable",for:indexPath) as! CastTableViewCell
             cell.listCast = self.listCast
             tableView.rowHeight = 125
             return cell
-
-        }
-        if(indexPath.row == 4){// Title
+        case 4:// Title
             let cell = tableView.dequeueReusableCell(withIdentifier: "mainTitleCell", for: indexPath) as! MainTitleViewCell
-
+            
             tableView.rowHeight = 60
             cell.movieTitle(value: "Recomendation")
             cell.movieTitleSize(of: 20)
             cell.movieTitleColor(with: UIColor.white)
-
+            
             return cell
-        }
-        if(indexPath.row == 5){//Recomentadion movie
+        case 5://Recomentadion movie
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellCastTable",for:indexPath) as! CastTableViewCell
             cell.listCast = self.listCastConvert
             tableView.rowHeight = 125
             return cell
-            
+        default:
+              return UITableViewCell()
         }
-         return UITableViewCell()
+
+        
     }
     
     

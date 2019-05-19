@@ -24,7 +24,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDele
     
     var jsonMovieSearch: JSON = JSON.null{
         didSet{
-            print(segment.selectedSegmentIndex)
             if(segment.selectedSegmentIndex == 0){
                  listMovie = request.fromJSONtoMovies(json: jsonMovieSearch)
             }else{
@@ -98,7 +97,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         movieInfo = listMovie[indexPath.row]
         
         self.performSegue(withIdentifier: "movieDetail", sender: self)
@@ -116,7 +114,8 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDele
                                                           separator: "/")
                 let url = URL(string: imageUrl + listMovie[index].posterURL)
                 
-                cellWatch.poster.sd_setImage(with: url, placeholderImage: UIImage(named: listMovie[index].posterURL))
+                cellWatch.poster.sd_setImage(with: url,
+                                             placeholderImage: UIImage(named: listMovie[index].posterURL))
                 cellWatch.watchRank.isHidden = true
                 cellWatch.rankImage.isHidden = true
                 cellWatch.title.text = listMovie[index].title

@@ -31,10 +31,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="qwI-qd-CsQ" secondAttribute="trailing" id="06I-zb-Z6S"/>
-                            <constraint firstItem="qwI-qd-CsQ" firstAttribute="leading" secondItem="LI0-Yh-8B9" secondAttribute="leading" id="KZa-k5-Qyj"/>
-                            <constraint firstItem="qwI-qd-CsQ" firstAttribute="top" secondItem="LI0-Yh-8B9" secondAttribute="top" id="Ojj-9c-D9o"/>
-                            <constraint firstAttribute="bottom" secondItem="qwI-qd-CsQ" secondAttribute="bottom" constant="20" id="hyh-lx-2XK"/>
+                            <constraint firstItem="qwI-qd-CsQ" firstAttribute="top" secondItem="LI0-Yh-8B9" secondAttribute="top" id="8PG-xv-mL6"/>
+                            <constraint firstAttribute="trailing" secondItem="qwI-qd-CsQ" secondAttribute="trailing" id="J63-d3-r2t"/>
+                            <constraint firstItem="qwI-qd-CsQ" firstAttribute="leading" secondItem="LI0-Yh-8B9" secondAttribute="leading" id="s29-5k-IVL"/>
+                            <constraint firstAttribute="bottom" secondItem="qwI-qd-CsQ" secondAttribute="bottom" constant="20" id="teJ-XT-CFn"/>
                         </constraints>
                     </view>
                 </subviews>
