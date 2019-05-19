@@ -30,3 +30,8 @@ This project is using the following cocoapoads:
 | Movie Detail 1| Series Page |
 |--|--|
 | ![Movie Detail Page](https://github.com/Seeebas/sMovie/blob/master/ShowCase/MovieDetail1.png?raw=true)|![Movie Detail Page](https://github.com/Seeebas/sMovie/blob/master/ShowCase/MovieDetail2.png?raw=true) |
+
+
+# License
+
+sMovie is published under the **MIT** license. See [LICENSE](https://opensource.org/licenses/MIT) for more information.
