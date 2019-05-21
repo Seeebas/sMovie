@@ -2,6 +2,8 @@
 Hi, this is my first ever **swift app**. After finishing the udemy course https://www.udemy.com/ios11-app-development-bootcamp , i decided that, the best way to learn is to create something "real". So after searching the web i came arround with the 
 idea to create a app like the www.imdb.com. 
 
+You can search for movie/series and view their info but also you can save your personal favorite movie/serie.
+
 In order to get the movie info i used the API form **The Movie DB** https://www.themoviedb.org/documentation/api
 
 This project is using the following cocoapoads:
